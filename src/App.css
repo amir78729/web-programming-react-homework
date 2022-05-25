@@ -1,19 +1,26 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #fff5;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff6;
+}
+
+.app {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+  background-image: url("assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -21,18 +28,82 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+}
+
+main {
+  background-color: #000a;
+  padding: 10px;
+  min-height: 40vh;
+  max-height: 90vh;
+  width: 60vw;
   color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+main .movies {
+  width: 100%;
+  padding: 0;
+}
+main .movies div {
+  text-align: left;
+  line-height: 1;
+}
+main .movies div p {
+  margin: 5px 0 0;
+}
+main .movies button {
+  border-radius: 8px;
+  padding: 5px;
+}
+main .movies li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 15px 5px;
+}
+main .movies li:not(:last-child) {
+  border-bottom: 1px solid #fff5;
 }
 
-.App-link {
-  color: #61dafb;
+main .starShipInfosContainer {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  position: relative;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main .starShipInfosContainer .starShipList {
+  width: 260px;
+  list-style-type: none;
+  padding: 0 0 0 20px;
+  overflow: auto;
+  max-height: calc(90vh - 140px);
+}
+main .starShipInfosContainer .starShipList .loading {
+  color: white;
+  font-size: 10px;
+}
+main .starShipInfosContainer .starShipList .header {
+  display: flex;
+  align-items: center;
+}
+main .starShipInfosContainer .starShipList li {
+  height: 30px;
+  cursor: pointer;
+}
+main .starShipInfosContainer .starShipInfo {
+  width: calc(100% - 260px);
+  background-color: #000a;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: calc(100% - 260px);
+  min-width: calc(100% - 260px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+main .starShipInfosContainer .starShipInfo p {
+  margin: 10px 0;
 }
