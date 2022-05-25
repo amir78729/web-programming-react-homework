@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/swapi/static/css/main.72815995.css",
-    "main.js": "/swapi/static/js/main.9e549b4b.js",
-    "static/js/787.96452199.chunk.js": "/swapi/static/js/787.96452199.chunk.js",
-    "static/media/background.jpg": "/swapi/static/media/background.c39d96e54c69c7cad651.jpg",
-    "index.html": "/swapi/index.html",
-    "main.72815995.css.map": "/swapi/static/css/main.72815995.css.map",
-    "main.9e549b4b.js.map": "/swapi/static/js/main.9e549b4b.js.map",
-    "787.96452199.chunk.js.map": "/swapi/static/js/787.96452199.chunk.js.map"
+    "main.css": "/web-programming-react-homework/static/css/main.7719a7b8.css",
+    "main.js": "/web-programming-react-homework/static/js/main.22891a91.js",
+    "static/js/787.96452199.chunk.js": "/web-programming-react-homework/static/js/787.96452199.chunk.js",
+    "static/media/background.jpg": "/web-programming-react-homework/static/media/background.c39d96e54c69c7cad651.jpg",
+    "index.html": "/web-programming-react-homework/index.html",
+    "main.7719a7b8.css.map": "/web-programming-react-homework/static/css/main.7719a7b8.css.map",
+    "main.22891a91.js.map": "/web-programming-react-homework/static/js/main.22891a91.js.map",
+    "787.96452199.chunk.js.map": "/web-programming-react-homework/static/js/787.96452199.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.72815995.css",
-    "static/js/main.9e549b4b.js"
+    "static/css/main.7719a7b8.css",
+    "static/js/main.22891a91.js"
   ]
 }
