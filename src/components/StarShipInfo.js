@@ -1,34 +1,36 @@
 import React, {useEffect, useState} from "react";
 
 const LIMIT = 5;
-const max = 20;
 
-export const StarShipInfo = ({ starShipData, movieTitle, goBack }) => {
+export const StarShipInfo = ({ starShipUrls, movieTitle, goBack }) => {
     const [starShips, setStarShips] = useState([]);
     const [index, setIndex] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        console.log(starShipData);
+        console.log("use effect called")
+        const fetchedData = [];
         const getData = async (url) => {
             const data = await fetch(url).then((v) =>
                 v.json()
             );
-            setStarShips(starShips => [...starShips, data]);
-            console.log(starShips);
+            fetchedData.push(data);
         };
         const getStarShipsData = async () => {
             setIsLoading(true);
-            for (const starShipUrl of starShipData) {
+            for (const starShipUrl of starShipUrls) {
                 console.log(starShipUrl);
                 await getData(starShipUrl);
             }
             setIsLoading(false);
+            setStarShips(fetchedData);
         };
         getStarShipsData();
-        console.log(starShips)
     }, []);
+
+    const max = starShips.length / LIMIT + 1;
+
     return (
         <section>
             <h2>{movieTitle}</h2>
@@ -38,8 +40,8 @@ export const StarShipInfo = ({ starShipData, movieTitle, goBack }) => {
                         <button onClick={() => goBack()}>...back</button>
                         {isLoading && <p className="loading">Loading Data...</p>}
                     </div>
-                    {starShips.slice((page - 1) * LIMIT, (LIMIT * page) - 1).map((starShip, index) => (
-                        <li onClick={() => setIndex(index)}>{starShip?.name}</li>
+                    {starShips.slice((page - 1) * LIMIT, (LIMIT * page)).map((starShip, index) => (
+                        <li onClick={() => setIndex(index + (page - 1) * LIMIT )}>{starShip?.name}</li>
                     ))}
                     <footer>
                         <button onClick={() => {if(page > 1) setPage((page) => page -1)}}>prev</button>

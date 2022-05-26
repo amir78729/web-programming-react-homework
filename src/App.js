@@ -28,7 +28,7 @@ function App() {
                         {showMovies ? (
                           <MoviesList movies={movies} setShowMovies={setShowMovies} setSelectedMovieIndex={setSelectedMovieIndex}/>
                         ) : (
-                          <StarShipInfo movieTitle={`"${movies[selectedMovieIndex].title}" StarShips`} starShipData={movies[selectedMovieIndex].starships} goBack={() => setShowMovies(true)} />
+                          <StarShipInfo movieTitle={`"${movies[selectedMovieIndex].title}" StarShips`} starShipUrls={movies[selectedMovieIndex].starships} goBack={() => setShowMovies(true)} />
                         )}
                     </>
                 )}
