@@ -1,9 +1,14 @@
 import React, {useEffect, useState} from "react";
 
+const LIMIT = 5;
+const max = 20;
+
 export const StarShipInfo = ({ starShipData, movieTitle, goBack }) => {
     const [starShips, setStarShips] = useState([]);
     const [index, setIndex] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [page, setPage] = useState(1);
+
     useEffect(() => {
         console.log(starShipData);
         const getData = async (url) => {
@@ -33,9 +38,14 @@ export const StarShipInfo = ({ starShipData, movieTitle, goBack }) => {
                         <button onClick={() => goBack()}>...back</button>
                         {isLoading && <p className="loading">Loading Data...</p>}
                     </div>
-                    {starShips.map((starShip, index) => (
+                    {starShips.slice((page - 1) * LIMIT, (LIMIT * page) - 1).map((starShip, index) => (
                         <li onClick={() => setIndex(index)}>{starShip?.name}</li>
                     ))}
+                    <footer>
+                        <button onClick={() => {if(page > 1) setPage((page) => page -1)}}>prev</button>
+                        <h2>Page {page}</h2>
+                        <button onClick={() => {if(page <= max) setPage((page) => page +1)}}>next</button>
+                    </footer>
                 </ul>
                 <div className="starShipInfo">
                     <h3>{starShips[index]?.name || 'Please Select a StarShip'}</h3>

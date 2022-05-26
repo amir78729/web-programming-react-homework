@@ -88,10 +88,22 @@ main .starShipInfosContainer .starShipList .loading {
 main .starShipInfosContainer .starShipList .header {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 main .starShipInfosContainer .starShipList li {
   height: 30px;
   cursor: pointer;
+}
+main .starShipInfosContainer .starShipList footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 20px;
+  align-items: center;
+  margin-top: 30px;
+}
+main .starShipInfosContainer .starShipList h2 {
+  margin: 0;
 }
 main .starShipInfosContainer .starShipInfo {
   width: calc(100% - 260px);

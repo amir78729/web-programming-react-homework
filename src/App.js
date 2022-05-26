@@ -1,12 +1,14 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import {StarShipInfo} from "./components/StarShipInfo";
+import MoviesList from "./components/MoviesList";
 
 function App() {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [showMovies, setShowMovies] = useState(true);
     const [selectedMovieIndex, setSelectedMovieIndex] = useState(null);
+
     useEffect(() => {
         fetch(`https://swapi.dev/api/films`)
             .then((response) => response.json())
@@ -15,6 +17,7 @@ function App() {
                 setIsLoading(false);
             })
     }, []);
+
     return (
         <div className="app">
             <main>
@@ -23,28 +26,9 @@ function App() {
                 ) : (
                     <>
                         {showMovies ? (
-                            <>
-                                <h1>StarWars Movies</h1>
-                                <ul className="movies">
-                                    {movies.map((movie, index) => (
-                                        <li>
-                                            <div>
-                                                <b>{movie.title}</b>
-                                                <p>({movie.episode_id}) - released: {movie.release_date}</p>
-                                            </div>
-                                            <button onClick={() => {
-                                                setShowMovies(false);
-                                                setSelectedMovieIndex(index);
-
-                                            }}>starShips</button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </>
+                          <MoviesList movies={movies} setShowMovies={setShowMovies} setSelectedMovieIndex={setSelectedMovieIndex}/>
                         ) : (
-                            <>
-                                <StarShipInfo movieTitle={`"${movies[selectedMovieIndex].title}" StarShips`} starShipData={movies[selectedMovieIndex].starships} goBack={() => setShowMovies(true)} />
-                            </>
+                          <StarShipInfo movieTitle={`"${movies[selectedMovieIndex].title}" StarShips`} starShipData={movies[selectedMovieIndex].starships} goBack={() => setShowMovies(true)} />
                         )}
                     </>
                 )}
